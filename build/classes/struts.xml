@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple" />
+    <package name="default" namespace="/" extends="struts-default">
+    	<!-- 页面跳转 -->
+   		<action name="page_*" class="com.opensymphony.xwork2.ActionSupport">
+    		<result>/WEB-INF/jsps/frame/{1}.jsp</result>
+    	</action>
+    	<!-- emp 员工-->
+		<action name="emp_*" class="empAction" method="{1}">
+			<result name="toLogin">/WEB-INF/jsps/login.jsp</result>
+			<result name="loginSuccess">/WEB-INF/jsps/frame.jsp</result>
+			<result name="toRegister">/WEB-INF/jsps/emp/register.jsp</result>
+		</action>
+		<!-- dep 部门 -->
+		<action name="dep_*" class="depAction" method="{1}">
+			<result name="list">/WEB-INF/jsps/dep/list.jsp</result>
+			<result name="toAdd">/WEB-INF/jsps/dep/add.jsp</result>
+			<result name="toUpdate">/WEB-INF/jsps/dep/update.jsp</result>
+			<result name="toList" type="redirectAction">dep_list</result>
+			<result name="toBack" type="redirectAction">dep_list</result>
+		</action>
+		<!-- role 职务 -->
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsps/role/list.jsp</result>
+			<result name="toAdd">/WEB-INF/jsps/role/add.jsp</result>
+			<result name="toUpdate">/WEB-INF/jsps/role/update.jsp</result>
+			<result name="toList" type="redirectAction">role_list</result>
+			<result name="toBack" type="redirectAction">role_list</result>
+		</action>
+    </package>
+</struts>
+

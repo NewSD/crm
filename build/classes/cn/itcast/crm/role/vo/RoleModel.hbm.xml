@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping >
+    <class name="cn.itcast.crm.role.vo.RoleModel" table="t_role" >
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="name"/>
+        <!-- 对部门多对一 -->
+        <many-to-one 
+        	name="dm"
+        	column="did"
+        	class="cn.itcast.crm.dep.vo.DepModel"
+        	/>
+    </class>
+</hibernate-mapping>
+
+
+
